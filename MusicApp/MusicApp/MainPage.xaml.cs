@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MusicApp.ViewModel;
+using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace MusicApp
@@ -16,6 +13,18 @@ namespace MusicApp
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void ToolbarItemIsrael_Clicked(object sender, EventArgs e)
+        {
+            var viewModel = (MainViewModel)BindingContext;
+            viewModel.MusicList = viewModel.GetIsraelMusics();
+        }
+
+        private void ToolbarItemMoscow_Clicked(object sender, EventArgs e)
+        {
+            var viewModel = (MainViewModel)BindingContext;
+            viewModel.MusicList = viewModel.GetMoscowMusics();
         }
     }
 }

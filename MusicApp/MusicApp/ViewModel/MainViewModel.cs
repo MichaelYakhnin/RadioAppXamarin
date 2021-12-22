@@ -14,7 +14,7 @@ namespace MusicApp.ViewModel
     {
         public MainViewModel()
         {
-            musicList = GetMusics();
+            musicList = GetIsraelMusics();
             recentMusic = musicList.FirstOrDefault();
         }
 
@@ -57,6 +57,7 @@ namespace MusicApp.ViewModel
         {
             if (selectedMusic != null)
             {
+                RecentMusic = selectedMusic;
                 var viewModel = new PlayerViewModel(selectedMusic, musicList) ;
                 var playerPage = new PlayerPage { BindingContext = viewModel };
 
@@ -65,9 +66,13 @@ namespace MusicApp.ViewModel
             }
         }
 
-        private ObservableCollection<Music> GetMusics()
+        public ObservableCollection<Music> GetMoscowMusics()
         {
             return MoscowRadio.GetStationsListAsync().Result;
+        }
+        public ObservableCollection<Music> GetIsraelMusics()
+        {
+            return IsraelRadio.GetStationsListAsync().Result;
         }
     }
 }

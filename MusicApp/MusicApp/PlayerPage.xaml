@@ -7,7 +7,7 @@
              mc:Ignorable="d" NavigationPage.HasNavigationBar="False"
              x:Class="MusicApp.PlayerPage">
 
-
+    
     <pv:PancakeView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
         <pv:PancakeView.BackgroundGradientStops>
             <pv:GradientStopCollection>
@@ -64,7 +64,7 @@
                 <StackLayout HorizontalOptions="Center">
                     <StackLayout>
                         <Label Text="{Binding SelectedMusic.Title}" TextColor="Black" FontSize="25" HorizontalOptions="Center"/>
-                        <Label Text="{Binding SelectedMusic.Artist}" TextColor="Black" FontSize="15" Opacity="0.5" HorizontalOptions="Center"/>
+                        <Label Text="{Binding SelectedMusic.Name}" TextColor="Black" FontSize="15" Opacity="0.5" HorizontalOptions="Center"/>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
