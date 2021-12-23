@@ -9,20 +9,30 @@ namespace MusicApp.ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-
+        /// <summary>
+        /// PropertyChanged
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// AddToFavorite
+        /// </summary>
+        public event EventHandler<FavoritesEventArgs> AddToFavorite;
 
         public void OnPropertyChanged([CallerMemberName] string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+        public void OnAddToFavorite(Radio radio)
+        {
+            AddToFavorite?.Invoke(this, new FavoritesEventArgs(radio));
+        }
     }
     public class FavoritesEventArgs : EventArgs
     {
-        public Music SelectedMusic { get; set; }
-        public FavoritesEventArgs(Music music)
+        public Radio SelectedStation { get; set; }
+        public FavoritesEventArgs(Radio radio)
         {
-            SelectedMusic = music;
+            SelectedStation = radio;
         }
     }
 }

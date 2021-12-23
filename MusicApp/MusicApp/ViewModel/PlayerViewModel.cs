@@ -12,7 +12,7 @@ namespace MusicApp.ViewModel
 {
     public class PlayerViewModel : BaseViewModel
     {
-        public PlayerViewModel(Music selectedMusic, ObservableCollection<Music> musicList)
+        public PlayerViewModel(Radio selectedMusic, ObservableCollection<Radio> musicList)
         {
             this.selectedMusic = selectedMusic;
             this.musicList = musicList;
@@ -21,8 +21,8 @@ namespace MusicApp.ViewModel
         }
 
         #region Properties
-        ObservableCollection<Music> musicList;
-        public ObservableCollection<Music> MusicList
+        ObservableCollection<Radio> musicList;
+        public ObservableCollection<Radio> MusicList
         {
             get { return musicList; }
             set
@@ -32,8 +32,8 @@ namespace MusicApp.ViewModel
             }
         }
 
-        private Music selectedMusic;
-        public Music SelectedMusic
+        private Radio selectedMusic;
+        public Radio SelectedMusic
         {
             get { return selectedMusic; }
             set
@@ -101,6 +101,7 @@ namespace MusicApp.ViewModel
         public ICommand BackCommand => new Command(() => Application.Current.MainPage.Navigation.PopAsync());
         public ICommand ShareCommand => new Command(() => Share.RequestAsync(selectedMusic.Src, selectedMusic.Title));
 
+        public ICommand AddToFavoriteCommand => new Command(() => OnAddToFavorite(selectedMusic));
 
         private async void Play()
         {
@@ -124,7 +125,7 @@ namespace MusicApp.ViewModel
                 NextMusic();
         }
 
-        private async void PlayMusic(Music music)
+        private async void PlayMusic(Radio music)
         {
             var mediaInfo = CrossMediaManager.Current;
             await mediaInfo.Play(music?.Src);

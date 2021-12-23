@@ -15,21 +15,33 @@ namespace MusicApp.Logic
 
         #region Setting Constants
 
-        private const string FavoritesKey = "favorites_key";
+        private const string IsrFavoritesKey = "isr_favorites_key";
+        private const string RuFavoritesKey = "ru_favorites_key";
         private static readonly string SettingsDefault = string.Empty;
 
         #endregion
 
 
-        public static string FavoriteSettings
+        public static string IsrFavoriteSettings
         {
             get
             {
-                return AppSettings.GetValueOrDefault(FavoritesKey, SettingsDefault);
+                return AppSettings.GetValueOrDefault(IsrFavoritesKey, SettingsDefault);
             }
             set
             {
-                AppSettings.AddOrUpdateValue(FavoritesKey, value);
+                AppSettings.AddOrUpdateValue(IsrFavoritesKey, value);
+            }
+        }
+        public static string RuFavoriteSettings
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(RuFavoritesKey, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(RuFavoritesKey, value);
             }
         }
 

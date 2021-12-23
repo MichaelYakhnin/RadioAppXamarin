@@ -1,6 +1,6 @@
 ﻿namespace MusicApp.Model
 {
-    public class Music
+    public class Radio
     {
         public string Title { get; set; }
         public string Name { get; set; }

@@ -10,9 +10,9 @@ namespace MusicApp.Logic
 {
     public static class MoscowRadio
     {
-        public static async Task<ObservableCollection<Music>> GetStationsListAsync()
+        public static async Task<ObservableCollection<Radio>> GetStationsListAsync()
         {
-            var list = new ObservableCollection<Music>();
+            var list = new ObservableCollection<Radio>();
             using (var stream = await FileSystem.OpenAppPackageFileAsync("msk.json"))
             {
                 using (var reader = new StreamReader(stream))
@@ -20,7 +20,7 @@ namespace MusicApp.Logic
                     try
                     {
                         var fileContents = reader.ReadToEnd();
-                        var stationsList = JsonConvert.DeserializeObject<ObservableCollection<Music>>(fileContents);
+                        var stationsList = JsonConvert.DeserializeObject<ObservableCollection<Radio>>(fileContents);
                         return stationsList;
                     }
                     catch(Exception ex)

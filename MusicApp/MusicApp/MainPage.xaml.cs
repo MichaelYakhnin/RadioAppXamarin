@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using Xamarin.Forms;
+using static MusicApp.Model.Lib;
 
 namespace MusicApp
 {
@@ -19,12 +20,16 @@ namespace MusicApp
         {
             var viewModel = (MainViewModel)BindingContext;
             viewModel.MusicList = viewModel.GetIsraelMusics();
+            viewModel.StationType = StationType.Israel;
+            viewModel.FavoritesList = viewModel.GetFavorites(StationType.Israel);
         }
 
         private void ToolbarItemMoscow_Clicked(object sender, EventArgs e)
         {
             var viewModel = (MainViewModel)BindingContext;
             viewModel.MusicList = viewModel.GetMoscowMusics();
+            viewModel.StationType = StationType.Russian;
+            viewModel.FavoritesList = viewModel.GetFavorites(StationType.Russian);
         }
     }
 }

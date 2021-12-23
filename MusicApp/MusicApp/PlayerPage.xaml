@@ -20,6 +20,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="1.2*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
             <Grid Margin="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <Grid.ColumnDefinitions>
@@ -117,6 +118,21 @@
                         <Image Source="next.png" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center" VerticalOptions="Center"/>
                     </pv:PancakeView>
                 </StackLayout>
+            </StackLayout>
+            <StackLayout Spacing="100" Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <pv:PancakeView  HeightRequest="42" WidthRequest="42" CornerRadius="31" HorizontalOptions="Center" 
+                            VerticalOptions="Center" >
+                    <pv:PancakeView.BackgroundGradientStops>
+                        <pv:GradientStopCollection>
+                            <pv:GradientStop Color="#D4420C" Offset="0" />
+                            <pv:GradientStop Color="#F3A283" Offset="1" />
+                        </pv:GradientStopCollection>
+                    </pv:PancakeView.BackgroundGradientStops>
+                    <pv:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AddToFavoriteCommand}"/>
+                    </pv:PancakeView.GestureRecognizers>
+                    <Image Source="favorite.jpg" HeightRequest="21" WidthRequest="21" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </pv:PancakeView>
             </StackLayout>
         </Grid>
     </pv:PancakeView>
