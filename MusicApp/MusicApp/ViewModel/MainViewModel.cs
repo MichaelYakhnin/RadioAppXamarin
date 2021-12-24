@@ -1,11 +1,7 @@
 using MusicApp.Logic;
 using MusicApp.Model;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using static MusicApp.Model.Lib;
@@ -89,7 +85,7 @@ namespace MusicApp.ViewModel
                 
                 var viewModel = new PlayerViewModel(selectedFavorite, favoritesList);
                 playerPage = new PlayerPage { BindingContext = viewModel };
-                
+                playerPage.PermissionCheckAsync().Wait();
                 var navigation = Application.Current.MainPage as NavigationPage;
                 navigation.PopAsync();
                 navigation.PushAsync(playerPage, true);
@@ -100,7 +96,9 @@ namespace MusicApp.ViewModel
                 
                 var viewModel = new PlayerViewModel(selectedMusic, musicList) ;
                 playerPage = new PlayerPage { BindingContext = viewModel };
+                playerPage.PermissionCheckAsync().Wait();
                 viewModel.AddToFavorite += OnAddToFavoriteAsync;
+
                 var navigation = Application.Current.MainPage as NavigationPage;
                 navigation.PopAsync();
                 navigation.PushAsync(playerPage, true);

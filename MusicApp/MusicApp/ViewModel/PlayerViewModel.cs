@@ -2,12 +2,9 @@ using LibVLCSharp.Shared;
 using MediaManager;
 using MusicApp.Model;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Text;
 using System.Windows.Input;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace MusicApp.ViewModel
@@ -213,5 +210,6 @@ namespace MusicApp.ViewModel
             }
             
         }
+       
     }
 }
