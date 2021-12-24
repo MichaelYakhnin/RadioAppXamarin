@@ -1,8 +1,10 @@
+using LibVLCSharp.Shared;
 using MediaManager;
 using MusicApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -12,6 +14,8 @@ namespace MusicApp.ViewModel
 {
     public class PlayerViewModel : BaseViewModel
     {
+        private MediaPlayer mediaPlayer;
+
         public PlayerViewModel(Radio selectedMusic, ObservableCollection<Radio> musicList)
         {
             this.selectedMusic = selectedMusic;
@@ -91,15 +95,27 @@ namespace MusicApp.ViewModel
                 OnPropertyChanged(nameof(PlayIcon));
             }
         }
+        private bool isRecording;
+        public bool IsRecording
+        {
+            get { return isRecording; }
+            set
+            {
+                isRecording = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(RecordIcon));
+            }
+        }
 
         public string PlayIcon { get => isPlaying ? "pause.png" : "play.png"; }
+        public string RecordIcon { get => isRecording ? "stop.png" : "record.png"; }
 
         #endregion
 
         public ICommand PlayCommand => new Command(Play);
         public ICommand ChangeCommand => new Command(ChangeMusic);
         public ICommand BackCommand => new Command(() => Application.Current.MainPage.Navigation.PopAsync());
-        public ICommand ShareCommand => new Command(() => Share.RequestAsync(selectedMusic.Src, selectedMusic.Title));
+        public ICommand RecordCommand => new Command(() => Download());
 
         public ICommand AddToFavoriteCommand => new Command(() => OnAddToFavorite(selectedMusic));
 
@@ -128,6 +144,7 @@ namespace MusicApp.ViewModel
         private async void PlayMusic(Radio music)
         {
             var mediaInfo = CrossMediaManager.Current;
+            await mediaInfo.Stop();
             await mediaInfo.Play(music?.Src);
             IsPlaying = true;
 
@@ -167,6 +184,34 @@ namespace MusicApp.ViewModel
                 SelectedMusic = musicList[currentIndex - 1];
                 PlayMusic(selectedMusic);
             }
+        }
+        private void Download()
+        {
+            if(isRecording)
+            {
+                mediaPlayer.Stop();
+                mediaPlayer = null;
+                IsRecording = false;
+            }
+            else
+            {
+                Core.Initialize();
+                using (var libvlc = new LibVLC())
+                {
+                    mediaPlayer = new MediaPlayer(libvlc);
+                    var media = new Media(libvlc, selectedMusic.Src, FromType.FromLocation);
+                    var currentDirectory = "/storage/emulated/0/music/";
+                    var destination = Path.Combine(currentDirectory, $"record-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.mp3");
+                    // Define stream output options. 
+                    // In this case stream to a file with the given path and play locally the stream while streaming it
+                    media.AddOption(":enable:sout");
+                    media.AddOption(":sout=#transcode{acodec=mp3}:std{access=file,dst=" + destination + "}");
+                    // Start recording
+                    mediaPlayer.Play(media);
+                    IsRecording = true;
+                }
+            }
+            
         }
     }
 }

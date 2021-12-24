@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,8 +15,12 @@ namespace MusicApp
     {
         public PlayerPage()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
+        public void PlayerPage_AddToFavorite(object sender, FavoritesEventArgs e)
+        {
+            DisplayAlert("Alert","Added to favorites","Ok");
+        }
     }
 }

@@ -24849,85 +24849,91 @@ namespace MusicApp.Droid
 			public const int radonezh = 2131165484;
 			
 			// aapt resource value: 0x7F07012D
-			public const int relax = 2131165485;
+			public const int record = 2131165485;
 			
 			// aapt resource value: 0x7F07012E
-			public const int retro = 2131165486;
+			public const int relax = 2131165486;
 			
 			// aapt resource value: 0x7F07012F
-			public const int rock952 = 2131165487;
+			public const int retro = 2131165487;
 			
 			// aapt resource value: 0x7F070130
-			public const int romantika = 2131165488;
+			public const int rock952 = 2131165488;
 			
 			// aapt resource value: 0x7F070131
-			public const int rrd = 2131165489;
+			public const int romantika = 2131165489;
 			
 			// aapt resource value: 0x7F070132
-			public const int russkiy_hit = 2131165490;
+			public const int rrd = 2131165490;
 			
 			// aapt resource value: 0x7F070133
-			public const int russkoe = 2131165491;
+			public const int russkiy_hit = 2131165491;
 			
 			// aapt resource value: 0x7F070134
-			public const int serebryany_dozhd = 2131165492;
+			public const int russkoe = 2131165492;
 			
 			// aapt resource value: 0x7F070135
-			public const int share = 2131165493;
+			public const int serebryany_dozhd = 2131165493;
 			
 			// aapt resource value: 0x7F070136
-			public const int shokolad = 2131165494;
+			public const int share = 2131165494;
 			
 			// aapt resource value: 0x7F070137
-			public const int sputnik = 2131165495;
+			public const int shokolad = 2131165495;
 			
 			// aapt resource value: 0x7F070138
-			public const int studio21 = 2131165496;
+			public const int sputnik = 2131165496;
 			
 			// aapt resource value: 0x7F070139
-			public const int taxifm = 2131165497;
+			public const int stop = 2131165497;
 			
 			// aapt resource value: 0x7F07013A
-			public const int test_custom_background = 2131165498;
+			public const int studio21 = 2131165498;
 			
 			// aapt resource value: 0x7F07013B
-			public const int tooltip_frame_dark = 2131165499;
+			public const int taxifm = 2131165499;
 			
 			// aapt resource value: 0x7F07013C
-			public const int tooltip_frame_light = 2131165500;
+			public const int test_custom_background = 2131165500;
 			
 			// aapt resource value: 0x7F07013D
-			public const int tvoya_volna = 2131165501;
+			public const int tooltip_frame_dark = 2131165501;
 			
 			// aapt resource value: 0x7F07013E
-			public const int vera = 2131165502;
+			public const int tooltip_frame_light = 2131165502;
 			
 			// aapt resource value: 0x7F07013F
-			public const int vesna_fm = 2131165503;
+			public const int tvoya_volna = 2131165503;
 			
 			// aapt resource value: 0x7F070140
-			public const int vgtrk_kultura = 2131165504;
+			public const int vera = 2131165504;
 			
 			// aapt resource value: 0x7F070141
-			public const int vgtrk_mayak = 2131165505;
+			public const int vesna_fm = 2131165505;
 			
 			// aapt resource value: 0x7F070142
-			public const int vgtrk_radio_rossii = 2131165506;
+			public const int vgtrk_kultura = 2131165506;
 			
 			// aapt resource value: 0x7F070143
-			public const int vgtrk_vesti = 2131165507;
+			public const int vgtrk_mayak = 2131165507;
 			
 			// aapt resource value: 0x7F070144
-			public const int vostok_fm = 2131165508;
+			public const int vgtrk_radio_rossii = 2131165508;
 			
 			// aapt resource value: 0x7F070145
-			public const int yumor = 2131165509;
+			public const int vgtrk_vesti = 2131165509;
 			
 			// aapt resource value: 0x7F070146
-			public const int zhara = 2131165510;
+			public const int vostok_fm = 2131165510;
 			
 			// aapt resource value: 0x7F070147
-			public const int zvezda = 2131165511;
+			public const int yumor = 2131165511;
+			
+			// aapt resource value: 0x7F070148
+			public const int zhara = 2131165512;
+			
+			// aapt resource value: 0x7F070149
+			public const int zvezda = 2131165513;
 			
 			// aapt resource value: 0x7F070006
 			public const int _1 = 2131165190;

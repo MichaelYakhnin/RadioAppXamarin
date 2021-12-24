@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using static MusicApp.Model.Lib;
@@ -13,6 +14,7 @@ namespace MusicApp.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        PlayerPage playerPage;
         public StationType StationType { get; set; }
         public MainViewModel()
         {
@@ -77,7 +79,8 @@ namespace MusicApp.ViewModel
         }
 
         public ICommand SelectionCommand => new Command(PlayMusic);
-        
+        public ICommand BackCommand => new Command(() => Application.Current.MainPage.Navigation.PushAsync(playerPage, true));
+
         private void PlayMusic(object obj)
         {
             if((string)obj == "Favorite" && selectedFavorite != null)
@@ -85,7 +88,7 @@ namespace MusicApp.ViewModel
                 RecentMusic = selectedFavorite;
                 
                 var viewModel = new PlayerViewModel(selectedFavorite, favoritesList);
-                var playerPage = new PlayerPage { BindingContext = viewModel };
+                playerPage = new PlayerPage { BindingContext = viewModel };
                 
                 var navigation = Application.Current.MainPage as NavigationPage;
                 navigation.PopAsync();
@@ -96,27 +99,34 @@ namespace MusicApp.ViewModel
                 RecentMusic = selectedMusic;
                 
                 var viewModel = new PlayerViewModel(selectedMusic, musicList) ;
-                var playerPage = new PlayerPage { BindingContext = viewModel };
-                viewModel.AddToFavorite += OnAddToFavorite;
+                playerPage = new PlayerPage { BindingContext = viewModel };
+                viewModel.AddToFavorite += OnAddToFavoriteAsync;
                 var navigation = Application.Current.MainPage as NavigationPage;
                 navigation.PopAsync();
                 navigation.PushAsync(playerPage, true);
+                viewModel.AddToFavorite += playerPage.PlayerPage_AddToFavorite;
             }
         }
 
-        private void OnAddToFavorite(object sender, FavoritesEventArgs e)
+        private void OnAddToFavoriteAsync(object sender, FavoritesEventArgs e)
         {
             switch (StationType)
             {
                 case StationType.Israel:
-                    FavoritesList.Add(e.SelectedStation);
-                    var list = string.Join(",", FavoritesList.Select(x => x.Name));
-                    Settings.IsrFavoriteSettings = list;
+                    if (!FavoritesList.Any(x => x == e.SelectedStation))
+                    {
+                        FavoritesList.Add(e.SelectedStation);
+                        var list = string.Join(",", FavoritesList.Select(x => x.Name));
+                        Settings.IsrFavoriteSettings = list;                       
+                    }
                     break;
                 case StationType.Russian:
-                    FavoritesList.Add(e.SelectedStation);
-                    var listRu = string.Join(",", FavoritesList.Select(x => x.Name));
-                    Settings.RuFavoriteSettings = listRu;
+                    if (!FavoritesList.Any(x => x == e.SelectedStation))
+                    {
+                        FavoritesList.Add(e.SelectedStation);
+                        var listRu = string.Join(",", FavoritesList.Select(x => x.Name));
+                        Settings.RuFavoriteSettings = listRu;
+                    }
                     break;
                 default:
                     break;
