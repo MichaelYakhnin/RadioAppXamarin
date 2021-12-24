@@ -1,4 +1,4 @@
-#  Radio Audio in Xamarin Forms 
+#  Radio Audio Player in Xamarin Forms 
 
 Fork from https://github.com/devcrux/Play-Audio-in-Xamarin-Forms
 
