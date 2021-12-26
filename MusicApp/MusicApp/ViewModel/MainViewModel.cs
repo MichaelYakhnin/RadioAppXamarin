@@ -89,6 +89,9 @@ namespace MusicApp.ViewModel
                 var navigation = Application.Current.MainPage as NavigationPage;
                 navigation.PopAsync();
                 navigation.PushAsync(playerPage, true);
+
+                viewModel.FailedPlay += playerPage.PlayerPage_OnFailedPlay;
+                viewModel.DownloadClicked += playerPage.PlayerPage_OnDownloadClicked;
             }
             if ((string)obj == "Regular" && selectedMusic != null)
             {
@@ -98,11 +101,13 @@ namespace MusicApp.ViewModel
                 playerPage = new PlayerPage { BindingContext = viewModel };
                 playerPage.PermissionCheckAsync().Wait();
                 viewModel.AddToFavorite += OnAddToFavoriteAsync;
-
+               
                 var navigation = Application.Current.MainPage as NavigationPage;
                 navigation.PopAsync();
                 navigation.PushAsync(playerPage, true);
                 viewModel.AddToFavorite += playerPage.PlayerPage_AddToFavorite;
+                viewModel.FailedPlay += playerPage.PlayerPage_OnFailedPlay;
+                viewModel.DownloadClicked += playerPage.PlayerPage_OnDownloadClicked;
             }
         }
 

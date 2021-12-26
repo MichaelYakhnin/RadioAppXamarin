@@ -18,6 +18,10 @@ namespace MusicApp.ViewModel
         /// </summary>
         public event EventHandler<FavoritesEventArgs> AddToFavorite;
 
+        public event EventHandler FailedPlay;
+
+        public event EventHandler DownloadClicked;
+
         public void OnPropertyChanged([CallerMemberName] string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -25,6 +29,14 @@ namespace MusicApp.ViewModel
         public void OnAddToFavorite(Radio radio)
         {
             AddToFavorite?.Invoke(this, new FavoritesEventArgs(radio));
+        }
+        public void OnFailedPlay(object sender, EventArgs e)
+        {
+            FailedPlay?.Invoke(this, new EventArgs());
+        }
+        public void OnDownloadClicked()
+        {
+            DownloadClicked?.Invoke(this, new EventArgs());
         }
     }
     public class FavoritesEventArgs : EventArgs

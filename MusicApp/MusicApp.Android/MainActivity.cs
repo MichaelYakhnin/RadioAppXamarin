@@ -32,5 +32,6 @@ namespace MusicApp.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+       
     }
 }

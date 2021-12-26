@@ -1,4 +1,5 @@
-﻿using MusicApp.ViewModel;
+﻿using MusicApp.Interfaces;
+using MusicApp.ViewModel;
 using System;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -31,5 +32,12 @@ namespace MusicApp
             viewModel.StationType = StationType.Russian;
             viewModel.FavoritesList = viewModel.GetFavorites(StationType.Russian);
         }
+        protected override bool OnBackButtonPressed()
+        {
+            if (Application.Current.MainPage.Navigation.NavigationStack.Count == 1)//navigation is MainPage.Navigation
+                DependencyService.Get<IAndroidMethods>().CloseApp();
+            return base.OnBackButtonPressed();
+        }
+
     }
 }

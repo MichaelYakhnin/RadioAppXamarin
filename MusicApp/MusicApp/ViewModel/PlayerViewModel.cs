@@ -1,5 +1,6 @@
 using LibVLCSharp.Shared;
 using MediaManager;
+using MediaManager.Media;
 using MusicApp.Model;
 using System;
 using System.Collections.ObjectModel;
@@ -121,11 +122,13 @@ namespace MusicApp.ViewModel
             if(isPlaying)
             {
                 await CrossMediaManager.Current.Pause();
+                
                 IsPlaying = false; ;
             }
             else
             {
                 await CrossMediaManager.Current.Play();
+                
                 IsPlaying = true; ;
             }
         }
@@ -145,21 +148,26 @@ namespace MusicApp.ViewModel
             await mediaInfo.Play(music?.Src);
             IsPlaying = true;
 
-            mediaInfo.MediaItemFinished += (sender, args) =>
-            {
-                IsPlaying = false;
-                NextMusic();
+            CrossMediaManager.Current.MediaItemFailed += OnFailedPlay;
+
+            CrossMediaManager.Current.MediaItemChanged += (object sender, MediaItemEventArgs e) => {
+                e.MediaItem.DisplayTitle = music.Title;
+                // Access any other metadata property through the file
             };
+
+            CrossMediaManager.Current.Notification.ShowNavigationControls = false;
 
             Device.StartTimer(TimeSpan.FromMilliseconds(500), () => 
             {
-                Duration = mediaInfo.Duration;
+                Duration = new TimeSpan(0,59,59);
                 Maximum = duration.TotalSeconds;
                 Position = mediaInfo.Position;
                 TotalSeconds = mediaInfo.Position.TotalSeconds;
                 return true;
             });
         }
+
+        
 
         private void NextMusic()
         {
@@ -206,6 +214,7 @@ namespace MusicApp.ViewModel
                     // Start recording
                     mediaPlayer.Play(media);
                     IsRecording = true;
+                    OnDownloadClicked();
                 }
             }
             
