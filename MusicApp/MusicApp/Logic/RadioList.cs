@@ -8,12 +8,12 @@ using Xamarin.Essentials;
 
 namespace MusicApp.Logic
 {
-    public static class MoscowRadio
+    public static class RadioList
     {
-        public static async Task<ObservableCollection<Radio>> GetStationsListAsync()
+        public static async Task<ObservableCollection<Radio>> GetStationsListAsync(string country)
         {
             var list = new ObservableCollection<Radio>();
-            using (var stream = await FileSystem.OpenAppPackageFileAsync("msk.json"))
+            using (var stream = await FileSystem.OpenAppPackageFileAsync(country))
             {
                 using (var reader = new StreamReader(stream))
                 {

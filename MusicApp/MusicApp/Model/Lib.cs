@@ -5,7 +5,8 @@
         public enum StationType
         {
             Israel,
-            Russian
+            Russian,
+            Ukraine
         }
     }
 }

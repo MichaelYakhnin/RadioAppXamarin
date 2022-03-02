@@ -17,6 +17,7 @@ namespace MusicApp.Logic
 
         private const string IsrFavoritesKey = "isr_favorites_key";
         private const string RuFavoritesKey = "ru_favorites_key";
+        private const string UkrFavoritesKey = "ukr_favorites_key";
         private static readonly string SettingsDefault = string.Empty;
 
         #endregion
@@ -42,6 +43,17 @@ namespace MusicApp.Logic
             set
             {
                 AppSettings.AddOrUpdateValue(RuFavoritesKey, value);
+            }
+        }
+        public static string UkrFavoriteSettings
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(UkrFavoritesKey, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(UkrFavoritesKey, value);
             }
         }
 

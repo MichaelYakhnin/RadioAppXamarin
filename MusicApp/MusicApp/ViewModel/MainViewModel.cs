@@ -11,6 +11,7 @@ namespace MusicApp.ViewModel
     public class MainViewModel : BaseViewModel
     {
         PlayerPage playerPage;
+        private static object _lock = new object();
         public StationType StationType { get; set; }
         public MainViewModel()
         {
@@ -118,7 +119,11 @@ namespace MusicApp.ViewModel
                 case StationType.Israel:
                     if (!FavoritesList.Any(x => x == e.SelectedStation))
                     {
-                        FavoritesList.Add(e.SelectedStation);
+                        lock (_lock)
+                        {
+                            FavoritesList.Add(e.SelectedStation);
+                        }
+                        
                         var list = string.Join(",", FavoritesList.Select(x => x.Name));
                         Settings.IsrFavoriteSettings = list;                       
                     }
@@ -126,9 +131,23 @@ namespace MusicApp.ViewModel
                 case StationType.Russian:
                     if (!FavoritesList.Any(x => x == e.SelectedStation))
                     {
-                        FavoritesList.Add(e.SelectedStation);
+                        lock (_lock)
+                        {
+                            FavoritesList.Add(e.SelectedStation);
+                        }
                         var listRu = string.Join(",", FavoritesList.Select(x => x.Name));
                         Settings.RuFavoriteSettings = listRu;
+                    }
+                    break;
+                case StationType.Ukraine:
+                    if (!FavoritesList.Any(x => x == e.SelectedStation))
+                    {
+                        lock (_lock)
+                        {
+                            FavoritesList.Add(e.SelectedStation);
+                        }
+                        var listRu = string.Join(",", FavoritesList.Select(x => x.Name));
+                        Settings.UkrFavoriteSettings = listRu;
                     }
                     break;
                 default:
@@ -146,6 +165,9 @@ namespace MusicApp.ViewModel
                 case StationType.Russian:
                     var listRu = MusicList.Where(x => Settings.RuFavoriteSettings.Split(',').Any(y => y == x.Name));
                     return new ObservableCollection<Radio>(listRu);
+                case StationType.Ukraine:
+                    var listUkr = MusicList.Where(x => Settings.UkrFavoriteSettings.Split(',').Any(y => y == x.Name));
+                    return new ObservableCollection<Radio>(listUkr);
                 default:
                     break;
             }
@@ -154,11 +176,15 @@ namespace MusicApp.ViewModel
 
         public ObservableCollection<Radio> GetMoscowMusics()
         {
-            return MoscowRadio.GetStationsListAsync().Result;
+            return RadioList.GetStationsListAsync("msk.json").Result;
         }
         public ObservableCollection<Radio> GetIsraelMusics()
         {
-            return IsraelRadio.GetStationsListAsync().Result;
+            return RadioList.GetStationsListAsync("isr.json").Result;
+        }
+        public ObservableCollection<Radio> GetKievMusics()
+        {
+            return RadioList.GetStationsListAsync("ukr.json").Result;
         }
     }
 }

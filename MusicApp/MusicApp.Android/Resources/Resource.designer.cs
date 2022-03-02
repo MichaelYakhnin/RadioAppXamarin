@@ -24903,259 +24903,268 @@ namespace MusicApp.Droid
 			public const int karnaval = 2131165428;
 			
 			// aapt resource value: 0x7F0700F5
-			public const int kniga = 2131165429;
+			public const int kievfm = 2131165429;
 			
 			// aapt resource value: 0x7F0700F6
-			public const int kommersant = 2131165430;
+			public const int kniga = 2131165430;
 			
 			// aapt resource value: 0x7F0700F7
-			public const int kp = 2131165431;
+			public const int kommersant = 2131165431;
 			
 			// aapt resource value: 0x7F0700F8
-			public const int likefm = 2131165432;
+			public const int kp = 2131165432;
 			
 			// aapt resource value: 0x7F0700F9
-			public const int love = 2131165433;
+			public const int likefm = 2131165433;
 			
 			// aapt resource value: 0x7F0700FA
-			public const int material_cursor_drawable = 2131165434;
+			public const int love = 2131165434;
 			
 			// aapt resource value: 0x7F0700FB
-			public const int material_ic_calendar_black_24dp = 2131165435;
+			public const int material_cursor_drawable = 2131165435;
 			
 			// aapt resource value: 0x7F0700FC
-			public const int material_ic_clear_black_24dp = 2131165436;
+			public const int material_ic_calendar_black_24dp = 2131165436;
 			
 			// aapt resource value: 0x7F0700FD
-			public const int material_ic_edit_black_24dp = 2131165437;
+			public const int material_ic_clear_black_24dp = 2131165437;
 			
 			// aapt resource value: 0x7F0700FE
-			public const int material_ic_keyboard_arrow_left_black_24dp = 2131165438;
+			public const int material_ic_edit_black_24dp = 2131165438;
 			
 			// aapt resource value: 0x7F0700FF
-			public const int material_ic_keyboard_arrow_next_black_24dp = 2131165439;
+			public const int material_ic_keyboard_arrow_left_black_24dp = 2131165439;
 			
 			// aapt resource value: 0x7F070100
-			public const int material_ic_keyboard_arrow_previous_black_24dp = 2131165440;
+			public const int material_ic_keyboard_arrow_next_black_24dp = 2131165440;
 			
 			// aapt resource value: 0x7F070101
-			public const int material_ic_keyboard_arrow_right_black_24dp = 2131165441;
+			public const int material_ic_keyboard_arrow_previous_black_24dp = 2131165441;
 			
 			// aapt resource value: 0x7F070102
-			public const int material_ic_menu_arrow_down_black_24dp = 2131165442;
+			public const int material_ic_keyboard_arrow_right_black_24dp = 2131165442;
 			
 			// aapt resource value: 0x7F070103
-			public const int material_ic_menu_arrow_up_black_24dp = 2131165443;
+			public const int material_ic_menu_arrow_down_black_24dp = 2131165443;
 			
 			// aapt resource value: 0x7F070104
-			public const int maximum = 2131165444;
+			public const int material_ic_menu_arrow_up_black_24dp = 2131165444;
 			
 			// aapt resource value: 0x7F070105
-			public const int megapolis_moskva = 2131165445;
+			public const int maximum = 2131165445;
 			
 			// aapt resource value: 0x7F070106
-			public const int mir = 2131165446;
+			public const int megapolis_moskva = 2131165446;
 			
 			// aapt resource value: 0x7F070107
-			public const int moskva_fm = 2131165447;
+			public const int mir = 2131165447;
 			
 			// aapt resource value: 0x7F070108
-			public const int mtrl_dialog_background = 2131165448;
+			public const int moskva_fm = 2131165448;
 			
 			// aapt resource value: 0x7F070109
-			public const int mtrl_dropdown_arrow = 2131165449;
+			public const int mtrl_dialog_background = 2131165449;
 			
 			// aapt resource value: 0x7F07010A
-			public const int mtrl_ic_arrow_drop_down = 2131165450;
+			public const int mtrl_dropdown_arrow = 2131165450;
 			
 			// aapt resource value: 0x7F07010B
-			public const int mtrl_ic_arrow_drop_up = 2131165451;
+			public const int mtrl_ic_arrow_drop_down = 2131165451;
 			
 			// aapt resource value: 0x7F07010C
-			public const int mtrl_ic_cancel = 2131165452;
+			public const int mtrl_ic_arrow_drop_up = 2131165452;
 			
 			// aapt resource value: 0x7F07010D
-			public const int mtrl_ic_error = 2131165453;
+			public const int mtrl_ic_cancel = 2131165453;
 			
 			// aapt resource value: 0x7F07010E
-			public const int mtrl_navigation_bar_item_background = 2131165454;
+			public const int mtrl_ic_error = 2131165454;
 			
 			// aapt resource value: 0x7F07010F
-			public const int mtrl_popupmenu_background = 2131165455;
+			public const int mtrl_navigation_bar_item_background = 2131165455;
 			
 			// aapt resource value: 0x7F070110
-			public const int mtrl_popupmenu_background_dark = 2131165456;
+			public const int mtrl_popupmenu_background = 2131165456;
 			
 			// aapt resource value: 0x7F070111
-			public const int mtrl_tabs_default_indicator = 2131165457;
+			public const int mtrl_popupmenu_background_dark = 2131165457;
 			
 			// aapt resource value: 0x7F070112
-			public const int mv = 2131165458;
+			public const int mtrl_tabs_default_indicator = 2131165458;
 			
 			// aapt resource value: 0x7F070113
-			public const int nashe = 2131165459;
+			public const int mv = 2131165459;
 			
 			// aapt resource value: 0x7F070114
-			public const int navigation_empty_icon = 2131165460;
+			public const int nashe = 2131165460;
 			
 			// aapt resource value: 0x7F070115
-			public const int next = 2131165461;
+			public const int navigation_empty_icon = 2131165461;
 			
 			// aapt resource value: 0x7F070116
-			public const int notification_action_background = 2131165462;
+			public const int next = 2131165462;
 			
 			// aapt resource value: 0x7F070117
-			public const int notification_bg = 2131165463;
+			public const int notification_action_background = 2131165463;
 			
 			// aapt resource value: 0x7F070118
-			public const int notification_bg_low = 2131165464;
+			public const int notification_bg = 2131165464;
 			
 			// aapt resource value: 0x7F070119
-			public const int notification_bg_low_normal = 2131165465;
+			public const int notification_bg_low = 2131165465;
 			
 			// aapt resource value: 0x7F07011A
-			public const int notification_bg_low_pressed = 2131165466;
+			public const int notification_bg_low_normal = 2131165466;
 			
 			// aapt resource value: 0x7F07011B
-			public const int notification_bg_normal = 2131165467;
+			public const int notification_bg_low_pressed = 2131165467;
 			
 			// aapt resource value: 0x7F07011C
-			public const int notification_bg_normal_pressed = 2131165468;
+			public const int notification_bg_normal = 2131165468;
 			
 			// aapt resource value: 0x7F07011D
-			public const int notification_icon_background = 2131165469;
+			public const int notification_bg_normal_pressed = 2131165469;
 			
 			// aapt resource value: 0x7F07011E
-			public const int notification_template_icon_bg = 2131165470;
+			public const int notification_icon_background = 2131165470;
 			
 			// aapt resource value: 0x7F07011F
-			public const int notification_template_icon_low_bg = 2131165471;
+			public const int notification_template_icon_bg = 2131165471;
 			
 			// aapt resource value: 0x7F070120
-			public const int notification_tile_bg = 2131165472;
+			public const int notification_template_icon_low_bg = 2131165472;
 			
 			// aapt resource value: 0x7F070121
-			public const int notify_panel_notification_icon_bg = 2131165473;
+			public const int notification_tile_bg = 2131165473;
 			
 			// aapt resource value: 0x7F070122
-			public const int novoe = 2131165474;
+			public const int notify_panel_notification_icon_bg = 2131165474;
 			
 			// aapt resource value: 0x7F070123
-			public const int orfey = 2131165475;
+			public const int novoe = 2131165475;
 			
 			// aapt resource value: 0x7F070124
-			public const int pause = 2131165476;
+			public const int orfey = 2131165476;
 			
 			// aapt resource value: 0x7F070125
-			public const int pi = 2131165477;
+			public const int pause = 2131165477;
 			
 			// aapt resource value: 0x7F070126
-			public const int play = 2131165478;
+			public const int pi = 2131165478;
 			
 			// aapt resource value: 0x7F070127
-			public const int playBlack = 2131165479;
+			public const int play = 2131165479;
 			
 			// aapt resource value: 0x7F070128
-			public const int preference_list_divider_material = 2131165480;
+			public const int playBlack = 2131165480;
 			
 			// aapt resource value: 0x7F070129
-			public const int previous = 2131165481;
+			public const int preference_list_divider_material = 2131165481;
 			
 			// aapt resource value: 0x7F07012A
-			public const int radio1 = 2131165482;
+			public const int previous = 2131165482;
 			
 			// aapt resource value: 0x7F07012B
-			public const int radio7 = 2131165483;
+			public const int radio1 = 2131165483;
 			
 			// aapt resource value: 0x7F07012C
-			public const int radonezh = 2131165484;
+			public const int radio7 = 2131165484;
 			
 			// aapt resource value: 0x7F07012D
-			public const int record = 2131165485;
+			public const int radionv = 2131165485;
 			
 			// aapt resource value: 0x7F07012E
-			public const int relax = 2131165486;
+			public const int radonezh = 2131165486;
 			
 			// aapt resource value: 0x7F07012F
-			public const int retro = 2131165487;
+			public const int record = 2131165487;
 			
 			// aapt resource value: 0x7F070130
-			public const int rock952 = 2131165488;
+			public const int relax = 2131165488;
 			
 			// aapt resource value: 0x7F070131
-			public const int romantika = 2131165489;
+			public const int retro = 2131165489;
 			
 			// aapt resource value: 0x7F070132
-			public const int rrd = 2131165490;
+			public const int retrofm = 2131165490;
 			
 			// aapt resource value: 0x7F070133
-			public const int russkiy_hit = 2131165491;
+			public const int rock952 = 2131165491;
 			
 			// aapt resource value: 0x7F070134
-			public const int russkoe = 2131165492;
+			public const int romantika = 2131165492;
 			
 			// aapt resource value: 0x7F070135
-			public const int serebryany_dozhd = 2131165493;
+			public const int rrd = 2131165493;
 			
 			// aapt resource value: 0x7F070136
-			public const int share = 2131165494;
+			public const int russkiy_hit = 2131165494;
 			
 			// aapt resource value: 0x7F070137
-			public const int shokolad = 2131165495;
+			public const int russkoe = 2131165495;
 			
 			// aapt resource value: 0x7F070138
-			public const int sputnik = 2131165496;
+			public const int serebryany_dozhd = 2131165496;
 			
 			// aapt resource value: 0x7F070139
-			public const int stop = 2131165497;
+			public const int share = 2131165497;
 			
 			// aapt resource value: 0x7F07013A
-			public const int studio21 = 2131165498;
+			public const int shokolad = 2131165498;
 			
 			// aapt resource value: 0x7F07013B
-			public const int taxifm = 2131165499;
+			public const int sputnik = 2131165499;
 			
 			// aapt resource value: 0x7F07013C
-			public const int test_custom_background = 2131165500;
+			public const int stop = 2131165500;
 			
 			// aapt resource value: 0x7F07013D
-			public const int tooltip_frame_dark = 2131165501;
+			public const int studio21 = 2131165501;
 			
 			// aapt resource value: 0x7F07013E
-			public const int tooltip_frame_light = 2131165502;
+			public const int taxifm = 2131165502;
 			
 			// aapt resource value: 0x7F07013F
-			public const int tvoya_volna = 2131165503;
+			public const int test_custom_background = 2131165503;
 			
 			// aapt resource value: 0x7F070140
-			public const int vera = 2131165504;
+			public const int tooltip_frame_dark = 2131165504;
 			
 			// aapt resource value: 0x7F070141
-			public const int vesna_fm = 2131165505;
+			public const int tooltip_frame_light = 2131165505;
 			
 			// aapt resource value: 0x7F070142
-			public const int vgtrk_kultura = 2131165506;
+			public const int tvoya_volna = 2131165506;
 			
 			// aapt resource value: 0x7F070143
-			public const int vgtrk_mayak = 2131165507;
+			public const int vera = 2131165507;
 			
 			// aapt resource value: 0x7F070144
-			public const int vgtrk_radio_rossii = 2131165508;
+			public const int vesna_fm = 2131165508;
 			
 			// aapt resource value: 0x7F070145
-			public const int vgtrk_vesti = 2131165509;
+			public const int vgtrk_kultura = 2131165509;
 			
 			// aapt resource value: 0x7F070146
-			public const int vostok_fm = 2131165510;
+			public const int vgtrk_mayak = 2131165510;
 			
 			// aapt resource value: 0x7F070147
-			public const int yumor = 2131165511;
+			public const int vgtrk_radio_rossii = 2131165511;
 			
 			// aapt resource value: 0x7F070148
-			public const int zhara = 2131165512;
+			public const int vgtrk_vesti = 2131165512;
 			
 			// aapt resource value: 0x7F070149
-			public const int zvezda = 2131165513;
+			public const int vostok_fm = 2131165513;
+			
+			// aapt resource value: 0x7F07014A
+			public const int yumor = 2131165514;
+			
+			// aapt resource value: 0x7F07014B
+			public const int zhara = 2131165515;
+			
+			// aapt resource value: 0x7F07014C
+			public const int zvezda = 2131165516;
 			
 			// aapt resource value: 0x7F070006
 			public const int _1 = 2131165190;

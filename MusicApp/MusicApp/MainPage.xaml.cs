@@ -32,6 +32,13 @@ namespace MusicApp
             viewModel.StationType = StationType.Russian;
             viewModel.FavoritesList = viewModel.GetFavorites(StationType.Russian);
         }
+        private void ToolbarItemKiev_Clicked(object sender, EventArgs e)
+        {
+            var viewModel = (MainViewModel)BindingContext;
+            viewModel.MusicList = viewModel.GetKievMusics();
+            viewModel.StationType = StationType.Ukraine;
+            viewModel.FavoritesList = viewModel.GetFavorites(StationType.Ukraine);
+        }
         protected override bool OnBackButtonPressed()
         {
             if (Application.Current.MainPage.Navigation.NavigationStack.Count == 1)//navigation is MainPage.Navigation
