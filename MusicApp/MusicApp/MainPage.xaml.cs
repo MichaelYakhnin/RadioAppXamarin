@@ -15,29 +15,35 @@ namespace MusicApp
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = Startup.Resolve<MainViewModel>();
         }
 
         private void ToolbarItemIsrael_Clicked(object sender, EventArgs e)
         {
             var viewModel = (MainViewModel)BindingContext;
-            viewModel.MusicList = viewModel.GetIsraelMusics();
+            viewModel.GetStationByType("isr");
             viewModel.StationType = StationType.Israel;
-            viewModel.FavoritesList = viewModel.GetFavorites(StationType.Israel);
+            viewModel.GetFavorites(StationType.Israel);
         }
 
         private void ToolbarItemMoscow_Clicked(object sender, EventArgs e)
         {
             var viewModel = (MainViewModel)BindingContext;
-            viewModel.MusicList = viewModel.GetMoscowMusics();
+            viewModel.GetStationByType("msk");
             viewModel.StationType = StationType.Russian;
-            viewModel.FavoritesList = viewModel.GetFavorites(StationType.Russian);
+            viewModel.GetFavorites(StationType.Russian);
         }
         private void ToolbarItemKiev_Clicked(object sender, EventArgs e)
         {
             var viewModel = (MainViewModel)BindingContext;
-            viewModel.MusicList = viewModel.GetKievMusics();
+            viewModel.GetStationByType("ukr");
             viewModel.StationType = StationType.Ukraine;
-            viewModel.FavoritesList = viewModel.GetFavorites(StationType.Ukraine);
+            viewModel.GetFavorites(StationType.Ukraine);
+        }
+        private void ToolbarItemStationsUpdate_Clicked(object sender, EventArgs e)
+        {
+            var viewModel = (MainViewModel)BindingContext;
+            viewModel.GetRadioListUpdate();           
         }
         protected override bool OnBackButtonPressed()
         {

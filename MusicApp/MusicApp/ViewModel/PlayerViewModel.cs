@@ -2,6 +2,7 @@ using LibVLCSharp.Shared;
 using MediaManager;
 using MediaManager.Media;
 using MusicApp.Model;
+using MusicApp.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -12,14 +13,14 @@ namespace MusicApp.ViewModel
 {
     public class PlayerViewModel : BaseViewModel
     {
-        private MediaPlayer mediaPlayer;
+        private MediaPlayer mediaPlayer; 
 
         public PlayerViewModel(Radio selectedMusic, ObservableCollection<Radio> musicList)
         {
             this.selectedMusic = selectedMusic;
             this.musicList = musicList;
             PlayMusic(selectedMusic);
-            isPlaying = true;
+            isPlaying = true;          
         }
 
         #region Properties

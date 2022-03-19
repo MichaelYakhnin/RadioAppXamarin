@@ -1,5 +1,6 @@
 using MusicApp.Logic;
 using MusicApp.Model;
+using MusicApp.Services;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -13,12 +14,12 @@ namespace MusicApp.ViewModel
         PlayerPage playerPage;
         private static object _lock = new object();
         public StationType StationType { get; set; }
-        public MainViewModel()
+        private readonly IRadioService _radioService;
+        public MainViewModel() { }
+        public MainViewModel(IRadioService radioService)
         {
-            musicList = GetIsraelMusics();
-            favoritesList = GetFavorites(StationType.Israel);
-            recentMusic = musicList.FirstOrDefault();
-            StationType = StationType.Israel;
+            _radioService = radioService;
+            GetStationByType("isr");                     
         }
 
         ObservableCollection<Radio> musicList;
@@ -122,10 +123,10 @@ namespace MusicApp.ViewModel
                         lock (_lock)
                         {
                             FavoritesList.Add(e.SelectedStation);
+                            var list = string.Join(",", FavoritesList.Select(x => x.Name));
+                            Settings.IsrFavoriteSettings = list;
                         }
-                        
-                        var list = string.Join(",", FavoritesList.Select(x => x.Name));
-                        Settings.IsrFavoriteSettings = list;                       
+                                                                   
                     }
                     break;
                 case StationType.Russian:
@@ -134,9 +135,9 @@ namespace MusicApp.ViewModel
                         lock (_lock)
                         {
                             FavoritesList.Add(e.SelectedStation);
-                        }
-                        var listRu = string.Join(",", FavoritesList.Select(x => x.Name));
-                        Settings.RuFavoriteSettings = listRu;
+                            var listRu = string.Join(",", FavoritesList.Select(x => x.Name));
+                            Settings.RuFavoriteSettings = listRu;
+                        }                       
                     }
                     break;
                 case StationType.Ukraine:
@@ -145,9 +146,9 @@ namespace MusicApp.ViewModel
                         lock (_lock)
                         {
                             FavoritesList.Add(e.SelectedStation);
-                        }
-                        var listRu = string.Join(",", FavoritesList.Select(x => x.Name));
-                        Settings.UkrFavoriteSettings = listRu;
+                            var listRu = string.Join(",", FavoritesList.Select(x => x.Name));
+                            Settings.UkrFavoriteSettings = listRu;
+                        }                       
                     }
                     break;
                 default:
@@ -155,36 +156,60 @@ namespace MusicApp.ViewModel
             }
         }
 
-        public ObservableCollection<Radio> GetFavorites(StationType stationType)
+        public void GetFavorites(StationType stationType)
         {
-            switch (StationType)
+            switch (stationType)
             {
                 case StationType.Israel:
                     var list = MusicList.Where(x => Settings.IsrFavoriteSettings.Split(',').Any(y => y == x.Name)).ToList();
-                    return new ObservableCollection<Radio>(list);
+                    FavoritesList = new ObservableCollection<Radio>(list);
+                    break;
                 case StationType.Russian:
                     var listRu = MusicList.Where(x => Settings.RuFavoriteSettings.Split(',').Any(y => y == x.Name));
-                    return new ObservableCollection<Radio>(listRu);
+                    FavoritesList = new ObservableCollection<Radio>(listRu);
+                    break;
                 case StationType.Ukraine:
                     var listUkr = MusicList.Where(x => Settings.UkrFavoriteSettings.Split(',').Any(y => y == x.Name));
-                    return new ObservableCollection<Radio>(listUkr);
+                    FavoritesList = new ObservableCollection<Radio>(listUkr);
+                    break;
                 default:
                     break;
             }
-            return null;
+           
         }
 
-        public ObservableCollection<Radio> GetMoscowMusics()
+        public async void GetStationByType(string country)
         {
-            return RadioList.GetStationsListAsync("msk.json").Result;
+            MusicList = await _radioService.GetStationsListLocal($"{country}.json").ConfigureAwait(false);
+           
+            GetFavorites(StationType.Israel);
+            recentMusic = musicList.FirstOrDefault();
+            StationType = StationType.Israel;
         }
-        public ObservableCollection<Radio> GetIsraelMusics()
+      
+        
+        public async void GetRadioListUpdate()
         {
-            return RadioList.GetStationsListAsync("isr.json").Result;
-        }
-        public ObservableCollection<Radio> GetKievMusics()
-        {
-            return RadioList.GetStationsListAsync("ukr.json").Result;
+           var ukrList = await _radioService.GetJsonFromGithub("ukr.json");
+           var isrList = await _radioService.GetJsonFromGithub("isr.json");
+           var rusList = await _radioService.GetJsonFromGithub("rus.json");
+            switch (StationType)
+            {
+                case StationType.Israel:
+                    MusicList = isrList;
+   
+                    break;
+                case StationType.Russian:
+                    MusicList = rusList;
+  
+                    break;
+                case StationType.Ukraine:
+                    MusicList = ukrList;
+    
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

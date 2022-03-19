@@ -9,7 +9,7 @@ namespace MusicApp
         public App()
         {
             InitializeComponent();
-
+            Startup.ConfigureServices();
             MainPage = new NavigationPage(new MainPage());
            
         }

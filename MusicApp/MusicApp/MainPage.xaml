@@ -8,13 +8,12 @@
              mc:Ignorable="d" NavigationPage.HasNavigationBar="True"
              x:Class="MusicApp.MainPage">
 
-    <ContentPage.BindingContext>
-        <vm:MainViewModel/>
-    </ContentPage.BindingContext>
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Israel radio" Order="Secondary" Priority="1" Clicked="ToolbarItemIsrael_Clicked"/>
         <ToolbarItem Text="Moscow radio" Order="Secondary" Priority="0" Clicked="ToolbarItemMoscow_Clicked"/>
         <ToolbarItem Text="Kiev radio" Order="Secondary" Priority="0" Clicked="ToolbarItemKiev_Clicked"/>
+        <ToolbarItem Text="Radio list Update" Order="Secondary" Priority="0" Clicked="ToolbarItemStationsUpdate_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <pv:PancakeView  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
@@ -105,7 +104,7 @@
                                             <pv:GradientStop Color="#7E95B5" Offset="1" />
                                         </pv:GradientStopCollection>
                                     </pv:PancakeView.BackgroundGradientStops>
-                                    <Image Source="{Binding Image}" WidthRequest="39" HeightRequest="39" HorizontalOptions="Center" VerticalOptions="Center" />
+                                        <Image Source="{Binding Image}" WidthRequest="39" HeightRequest="39" HorizontalOptions="Center" VerticalOptions="Center" />
                                 </pv:PancakeView>
                             </Grid>
                                 </Frame>

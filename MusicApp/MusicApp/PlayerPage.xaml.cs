@@ -15,9 +15,12 @@ namespace MusicApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlayerPage : ContentPage
     {
+        //private readonly PlayerViewModel _playerViewModel;
         public PlayerPage()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            //_playerViewModel = Startup.Resolve<PlayerViewModel>();
+            //BindingContext = _playerViewModel;
         }
 
         public void PlayerPage_AddToFavorite(object sender, FavoritesEventArgs e)

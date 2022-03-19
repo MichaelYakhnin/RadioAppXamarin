@@ -16,12 +16,25 @@ namespace MusicApp.Logic
         #region Setting Constants
 
         private const string IsrFavoritesKey = "isr_favorites_key";
+        
         private const string RuFavoritesKey = "ru_favorites_key";
+        
         private const string UkrFavoritesKey = "ukr_favorites_key";
+        
         private static readonly string SettingsDefault = string.Empty;
 
         #endregion
-
+        public static void SaveStationsSettings(string countryKey, string value)
+        {
+            AppSettings.AddOrUpdateValue(countryKey, value);
+        }
+        public static string GetStationsSettings(string countryKey)
+        {
+            if (AppSettings.Contains(countryKey))
+              return AppSettings.GetValueOrDefault(countryKey, SettingsDefault);
+            return null;
+        }
+        
 
         public static string IsrFavoriteSettings
         {
